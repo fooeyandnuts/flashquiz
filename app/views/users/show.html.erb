@@ -1,2 +1,11 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.name %> Profile</h1>
+<% @quizzes.each do |q| %>
+	<% if @user_id == q.user_id %>
+		<%= link_to q.name, quiz_path(q) %> || <%= q.subject %>
+		<% if current_user.id == @user.id %>
+		<%= link_to "Add Card", new_quiz_card_path(q), class: 'button' %>
+		<%= link_to "Edit Quiz", edit_quiz_path(q), class: 'button' %>
+		<%= link_to "Delete Quiz", q, method: :delete, data: {confirm: 'Are you sure you want to delete?'}, class: 'button' %>
+		<% end %>
+	<% end %>
+<% end %>

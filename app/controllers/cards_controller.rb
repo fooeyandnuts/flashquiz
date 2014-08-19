@@ -25,9 +25,16 @@ class CardsController < ApplicationController
   end
 
   def update
+    if @card.update(card_params)
+      redirect_to quiz_path(params[:quiz_id])
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @card.destroy
+    redirect_to quiz_path(params[:quiz_id])
   end
 
   protected
