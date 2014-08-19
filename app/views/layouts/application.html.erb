@@ -5,8 +5,37 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+
+<nav class="top-bar contain-to-grid sticky" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">FlashQuiz</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+    	<% if current_user %>
+    		<li><%= link_to user_path(current_user.id) do %>Hello, <%= current_user.name %><% end %></li>
+    		<li><%= link_to 'Sign Out', sessions_path, :method => :delete %></li>
+  		<% else %>
+      <li class="active"><%= link_to "Sign Up", new_user_path %></li>
+      <li> <%= link_to "Sign In", new_sessions_path %></li>
+      <% end %>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#">Left Nav Button</a></li>
+    </ul>
+  </section>
+</nav>
+
 <body>
 
 <%= yield %>

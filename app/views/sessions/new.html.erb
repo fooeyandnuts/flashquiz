@@ -1,2 +1,9 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class=container>
+<h1>Sign in here!</h1>
+<%= form_for :session, :url => sessions_path do |f| %>
+<%= f.text_field :email, placeholder: 'Email' %>
+<%= f.password_field :password, placeholder: 'Password' %>
+<%= f.submit 'Sign In!' %>
+<% end %>
+<%= link_to 'New account', new_user_path %>
+</div>
