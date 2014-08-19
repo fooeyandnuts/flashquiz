@@ -1,2 +1,7 @@
-<h1>Quizzes#show</h1>
-<p>Find me in app/views/quizzes/show.html.erb</p>
+<h1><%= @quiz.name %></h1>
+<p><%= link_to 'Create New Card', new_quiz_card_path(@quiz), class: 'button' %></p>
+<% @quiz.cards.each do |c| %>
+<ul>
+<li><%= c.question %></li>
+</ul>
+<% end %>

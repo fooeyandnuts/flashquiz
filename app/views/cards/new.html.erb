@@ -1,2 +1,6 @@
-<h1>Cards#new</h1>
-<p>Find me in app/views/cards/new.html.erb</p>
+<h1>New Card</h1>
+<%= form_for [@quiz, @card] do |f| %>
+<%= f.text_field :question, placeholder: 'Question' %>
+<%= f.text_field :answer, placeholder: 'Answer' %>
+<%= f.submit 'Create Card', class: 'button' %>
+<% end %>

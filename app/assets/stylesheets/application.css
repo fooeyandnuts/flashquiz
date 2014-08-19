@@ -13,3 +13,9 @@
  *= require foundation
  *= require font-awesome
  */
+
+.container {
+	margin: 1% 3%;
+	padding: 10px 25px;
+	border-radius: 15px;
+}

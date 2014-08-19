@@ -1,2 +1,6 @@
-<h1>Quizzes#index</h1>
-<p>Find me in app/views/quizzes/index.html.erb</p>
+<h1>All of the Quizzes</h1>
+<% @quizzes.each do |q| %>
+<ul>
+	<li><%= q.subject %> || <%= link_to q.name, quiz_path(q) %></li>
+</ul>
+<% end %>
