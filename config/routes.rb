@@ -1,7 +1,11 @@
 Flashquiz::Application.routes.draw do
+  
   resources :users
+  get 'quizzes/:id/takequiz' => 'quizzes#takequiz', as: :takequiz
   resources :quizzes do
-    resources :cards
+    resources :cards do
+      resource :guesses, only: [:new, :create]
+    end
   end
   resource :sessions, only: [:new, :create, :destroy]
   
@@ -9,7 +13,7 @@ Flashquiz::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success]="Signed In"
-      session[:remember_token]=@user.id.to_s
+      session[:remember_token] = @user.id.to_s
       redirect_to root_path
     else
       render 'new'
@@ -20,11 +20,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @quizzes = Quiz.all
+    @user = User.find(params[:id])
   end
 
   protected
+
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end

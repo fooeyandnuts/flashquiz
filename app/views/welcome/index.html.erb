@@ -1,0 +1,12 @@
+<h1> FlashQuiz</h1>
+
+<p>What subject are you interested in studying? </p>
+
+<% @quizzes.each do |q| %>
+
+<ul>
+	<li><%= link_to q.subject, quiz_path(q)%></li>
+</ul>
+
+<% end %>
+

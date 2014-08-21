@@ -1,0 +1,15 @@
+<h1>Some text</h1>
+
+<ul>
+	<li><%= @quiz.subject %></li>
+	<li><%= @quiz.name %></li>
+	<ul>
+	<% @quiz.cards.each do |c| %>
+	<li><%= c.question%></li>
+	<%= form_for @guess do |g| %>
+	<li>Enter your guess here: <%= f.text_field :guess %></li>
+	<% end %>
+	<% end %>
+</ul>
+
+</ul>

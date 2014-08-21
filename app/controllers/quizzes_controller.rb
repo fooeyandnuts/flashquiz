@@ -1,5 +1,6 @@
 class QuizzesController < ApplicationController
-  before_action :set_quiz, only: [:edit, :update, :show, :destroy]
+  before_action :set_quiz, only: [:edit, :update, :show, :takequiz, :destroy]
+  before_action :set_card, only: [:show]
   respond_to :json, :html
 
   def index
@@ -29,6 +30,10 @@ class QuizzesController < ApplicationController
   def show
   end
 
+  def takequiz
+    
+  end
+
   def edit
   end
 
@@ -53,6 +58,10 @@ class QuizzesController < ApplicationController
 
   def set_quiz
     @quiz = Quiz.find(params[:id])
+  end
+
+  def set_card
+    @card = Card.find(params[:card_id])
   end
 
 end
